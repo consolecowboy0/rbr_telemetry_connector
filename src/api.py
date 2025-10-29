@@ -39,9 +39,9 @@ class TelemetryAPI:
             try:
                 data = self.telemetry_reader.get_current_data()
                 return jsonify(data)
-            except Exception as e:
+            except Exception:
                 return jsonify({
-                    "error": str(e),
+                    "error": "Failed to retrieve telemetry data",
                     "status": "error"
                 }), 500
         
@@ -54,8 +54,8 @@ class TelemetryAPI:
                     "speed_kmh": data.get("speed_kmh", 0),
                     "timestamp": data.get("timestamp")
                 })
-            except Exception as e:
-                return jsonify({"error": str(e)}), 500
+            except Exception:
+                return jsonify({"error": "Failed to retrieve speed data"}), 500
         
         @self.app.route('/api/telemetry/rpm', methods=['GET'])
         def get_rpm():
@@ -66,8 +66,8 @@ class TelemetryAPI:
                     "rpm": data.get("rpm", 0),
                     "timestamp": data.get("timestamp")
                 })
-            except Exception as e:
-                return jsonify({"error": str(e)}), 500
+            except Exception:
+                return jsonify({"error": "Failed to retrieve RPM data"}), 500
         
         @self.app.route('/api/telemetry/position', methods=['GET'])
         def get_position():
@@ -78,8 +78,8 @@ class TelemetryAPI:
                     "position": data.get("position", {}),
                     "timestamp": data.get("timestamp")
                 })
-            except Exception as e:
-                return jsonify({"error": str(e)}), 500
+            except Exception:
+                return jsonify({"error": "Failed to retrieve position data"}), 500
         
         @self.app.route('/', methods=['GET'])
         def index():
