@@ -83,10 +83,10 @@ Edit `config.json` to customize:
 ```json
 {
   "api": {
-    "port": 8080        // Change API port
+    "port": 8080
   },
   "telemetry": {
-    "update_frequency_ms": 50  // Update rate
+    "update_frequency_ms": 50
   },
   "gui": {
     "window_width": 800,
@@ -94,6 +94,12 @@ Edit `config.json` to customize:
   }
 }
 ```
+
+Available settings:
+- `api.port` - Port for API server (default: 8080)
+- `telemetry.update_frequency_ms` - Update rate in milliseconds (default: 50)
+- `gui.window_width` - GUI window width (default: 800)
+- `gui.window_height` - GUI window height (default: 600)
 
 ## Building Your Own Executable
 
@@ -112,14 +118,15 @@ The executable will be in the `dist/` folder.
 ## Troubleshooting
 
 ### "Port already in use"
-Change the port in `config.json`:
+Change the port in `config.json` to any available port:
 ```json
 {
   "api": {
-    "port": 8081
+    "port": 9090
   }
 }
 ```
+(You can use any port number between 1024-65535 that isn't already in use)
 
 ### "Windows API not available"
 This is normal on Linux/macOS. Simulation mode will be used.
