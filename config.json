@@ -1,0 +1,16 @@
+{
+  "api": {
+    "host": "0.0.0.0",
+    "port": 8080
+  },
+  "telemetry": {
+    "update_frequency_ms": 50,
+    "shared_memory_name": "RBRTelemetry"
+  },
+  "gui": {
+    "window_title": "RBR Telemetry Connector",
+    "window_width": 800,
+    "window_height": 600,
+    "theme": "dark"
+  }
+}
